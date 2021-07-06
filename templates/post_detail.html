@@ -1,0 +1,34 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 card mb-4  mt-3 left  top">
+      <div class="card-body text-justify"> <!--tex-justify is new-->
+        <h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
+        <p class=" text-muted">{{ post.author }} | {{ post.get_jalali_date }}</p>
+        <p class="card-text ">{{ object.content | safe }}</p>
+      </div>
+    </div>
+    {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
+  </div>
+
+  <div class="col-md-8 card mb-4  mt-3 left  top">
+
+      
+         <!--comments-->
+         <h3 class="text-right" id='comments'>نظرات وبلاگ</h3>
+         {% for cm in post.comments.all %}
+ 
+         <div class="card text-right">
+         <div class="card-header">{{cm.name}}</div>
+         <div class="card-body">  {{cm.text}}</div> 
+         </div>
+         <br>
+ 
+         {% endfor %}
+         <!--endcomment-->
+    </div>
+
+</div>
+
+{% endblock content %}
