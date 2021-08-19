@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ckeditor',
     'jalali_date',
-	'blog'
+    'blog'
 ]
 
 # default settings
