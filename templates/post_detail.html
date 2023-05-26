@@ -27,6 +27,13 @@
  
          {% endfor %}
          <!--endcomment-->
+          <!-- ...................... -->
+         <form method="post" action""  class="card text-right">
+          {% csrf_token %}
+          {{ form.as_p }}
+      
+          <input type="submit" value="Submit">
+          </form>
     </div>
 
 </div>
