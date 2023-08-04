@@ -146,6 +146,19 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
+
+
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGIN_REDIRECT_URL='/accounts/show'
+#------------
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.office365.com'#for hotmail
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'your hotmail'
+EMAIL_HOST_PASSWORD = 'your pasword'
+
+#send_mail('subject','body email',settings.EMAIL_HOST_USER,['Receiver mail'])
