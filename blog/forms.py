@@ -23,9 +23,9 @@ class CommentForm(forms.ModelForm):
 #         fields = '__all__'
 
 #new------
-    class PostForm(forms.ModelForm):
-        class Meta:
-            model = Post
-            fields = '__all__'
-            labels = {'title':'موضوع','author':'نویسنده','content':'محتوا','status':'وضعیت'}
-    
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = '__all__'
+        labels = {'title':'موضوع','author':'نویسنده','content':'محتوا','status':'وضعیت'}
+
