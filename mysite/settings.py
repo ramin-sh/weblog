@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'jalali_date',
     'blog',
-    'django_bootstrap5',
+    'django_bootstrap5',#see https://django-bootstrap5.readthedocs.io/en/latest/templatetags.html#bootstrap-form   and    https://ngangasn.com/how-to-use-bootstrap-5-with-django-the-right-way/
 ]
 
 # default settings
