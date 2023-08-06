@@ -15,7 +15,7 @@ def generate_random_code():
 random_code = str(generate_random_code())
 
 #..........................
-def index(request):
+def loginView(request):
     if request.method=='POST':
         username=request.POST.get('username')
         print(username)
@@ -27,12 +27,16 @@ def index(request):
             login(request,user)
             return HttpResponseRedirect(settings.LOGIN_REDIRECT_URL)
         else:
-            return HttpResponse('eshtebah zadi')
+            context ={
+                "username":username,
+                "errorMessage":"کاربری با این مشخصات یافت نشد."
+            }
+            return render(request, 'accounts/login.html',context)
     else:
         return render(request, 'accounts/login.html')
 
 @login_required    
-def show_post(request):
+def add_post(request):
     context ={}
     form = PostForm(request.POST or None, request.FILES or None)
      
@@ -40,7 +44,7 @@ def show_post(request):
     if form.is_valid():
         # save the form data to model
         form.save()
- 
+        context['message'] = "پست جدید ایجاد گردید."
     context['form']= form
     return render(request, "accounts/home.html", context)
 
