@@ -17,11 +17,22 @@
 <title>پست جدید</title>
   </head>
   <body>
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">ایجاد پست جدید</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/">مشاهده وبلاگ</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" color="red" >خروج</a>
+      </li>
+    </ul>
+    
 {# Display a form #}
-
-
-
-
 
 <form action = "" method = "post" class="form">
   {% csrf_token %}
@@ -34,11 +45,6 @@
 
 </form>
     {{message}}
-<br>
-<div dir="rtl">
-  {% bootstrap_button "خروج" button_type="link" button_class="btn-outline-danger" href=" /accounts/"  %}
- 
-</div>
 
 </body>
 </html>
