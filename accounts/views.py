@@ -46,7 +46,7 @@ def add_post(request):
         form.save()
         context['message'] = "پست جدید ایجاد گردید."
     context['form']= form
-    return render(request, "accounts/home.html", context)
+    return render(request, "accounts/add_post.html", context)
 
 
 def logoutView(request):
