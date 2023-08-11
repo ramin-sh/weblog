@@ -85,6 +85,7 @@ def set_pass(request):
         return HttpResponse('پسورد شما تغییر یافت  ')
 
 
+
 def get_mail(request):
     if request.method=='GET':
         return render(request,"accounts/get_mail.html")
@@ -94,9 +95,12 @@ def get_mail(request):
         u = User.objects.get(username=user)
         if request.POST.get('mail') == u.email:
             send_mail('code',random_code,settings.EMAIL_HOST_USER,[request.POST.get('mail')]) 
-        
-       
+
             return HttpResponseRedirect('faramooshi')
+        else:
+            context={'message':'نام کاربری و ایمیل با هم مطابقت ندارند'}
+            
+            return render(request,"accounts/get_mail.html",context)
 
 def register(request):
     if request.method == 'POST':
