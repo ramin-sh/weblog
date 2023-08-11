@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'jalali_date',
     'blog',
     'django_bootstrap5',#see https://django-bootstrap5.readthedocs.io/en/latest/templatetags.html#bootstrap-form   and    https://ngangasn.com/how-to-use-bootstrap-5-with-django-the-right-way/
+    "captcha",# see https://www.tutorialspoint.com/how-to-add-a-captcha-in-a-django-website and https://django-simple-captcha.readthedocs.io/en/latest/usage.html
 ]
 
 # default settings

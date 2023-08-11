@@ -2,3 +2,4 @@ Django==3.2
 django-jalali-date==0.3.2
 django-ckeditor==6.1.0
 django-bootstrap5==23.3
+django-simple-captcha==0.5.18

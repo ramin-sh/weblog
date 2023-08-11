@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path,include
 
 from . import views
 
@@ -10,4 +10,5 @@ urlpatterns = [
     path('setpass',views.set_pass),
     path('getmail',views.get_mail),
     path('register',views.register),
+    path('/captcha',include("captcha.urls"))
 ]

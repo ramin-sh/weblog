@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from django.core.mail import send_mail
 from django.contrib.auth.models import User
+from .forms import MyForm
 #..............................
 import random
 
@@ -104,8 +105,11 @@ def get_mail(request):
 
 def register(request):
     if request.method == 'POST':
-        usermod=User.objects.create_user(username=request.POST['username'], password= request.POST['password'],email=request.POST['email'])
-        usermod.save()
-        return HttpResponse('ثبت نام شما در سایت صورت پذیرفت.')
+        form=MyForm(request.POST)
+        if form.is_valid():
+            usermod=User.objects.create_user(username=request.POST['username'], password= request.POST['password'],email=request.POST['email'])
+            usermod.save()
+            return HttpResponse('ثبت نام شما در سایت صورت پذیرفت.')
     if request.method == 'GET':
-        return render(request,'accounts/register.html')
+        form=MyForm()
+        return render(request,'accounts/register.html',{'form':form})
