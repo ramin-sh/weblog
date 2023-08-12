@@ -4,9 +4,14 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- ckeditor richtext media -->
+    {% load static %}
+  <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+  <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+   <!-- ckeditor richtext  see https://django-ckeditor.readthedocs.io/en/latest/#outside-of-django-admin-->
 
-{# Load the tag library #}
-{% load django_bootstrap5 %}
+ {# Load the tag library #}
+  {% load django_bootstrap5 %}
 
 {# Load CSS and JavaScript #}
 {% bootstrap_css %}
@@ -39,6 +44,7 @@
 
   {% bootstrap_form form %}
 
+  
   {% bootstrap_button button_type="submit" content="ثبت" %}
   {% bootstrap_button button_type="reset" content="ریست فرم" %}
 
