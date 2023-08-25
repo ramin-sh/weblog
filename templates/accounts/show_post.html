@@ -36,12 +36,31 @@
     </ul>
     
 
-    {% for post in posts %}
-    <p><a href="{% url 'edit_post' post.id %}">{{post.title}}</a></p>
+   
+
         
-    {% endfor %}
+   
 
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ردیف</th>
+            <th scope="col">عنوان</th>
+            <th scope="col">ویرایش</th>
+           
+          </tr>
+        </thead>
+        <tbody>
+            {% for post in posts %}
+          <tr>
+            <th scope="row">{{ forloop.counter}}</th>  {# The current iteration of the loop (1-indexed)#}
+            <td>{{post.title}}</td>
+            <td><a href="{% url 'edit_post' post.id %}">ویرایش:</a> </td>
 
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
 
 
 </body>
