@@ -38,7 +38,7 @@ def loginView(request):
         return render(request, 'accounts/login.html')
 
 @login_required    
-def add_post(request,post_id):
+def edit_post(request,post_id):
     context ={}
     post = Post.objects.get(id=post_id)
     form = PostForm(request.POST or None, request.FILES or None,instance=post)
@@ -51,6 +51,7 @@ def add_post(request,post_id):
     context['form']= form
     return render(request, "accounts/add_post.html", context)
 
+@login_required  
 def add_newpost(request):
     context ={}
     form = PostForm(request.POST or None, request.FILES or None)
