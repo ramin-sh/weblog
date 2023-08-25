@@ -154,7 +154,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL='/accounts/add_post'
+LOGIN_REDIRECT_URL='/accounts/show_post'
+
 #------------
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True

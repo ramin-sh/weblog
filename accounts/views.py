@@ -7,6 +7,7 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.contrib.auth.models import User
 from .forms import MyForm
+from blog.models import *
 #..............................
 import random
 
@@ -37,7 +38,20 @@ def loginView(request):
         return render(request, 'accounts/login.html')
 
 @login_required    
-def add_post(request):
+def add_post(request,post_id):
+    context ={}
+    post = Post.objects.get(id=post_id)
+    form = PostForm(request.POST or None, request.FILES or None,instance=post)
+     
+    # check if form data is valid
+    if form.is_valid():
+        # save the form data to model
+        form.save()
+        context['message'] = "پست جدید ایجاد گردید."
+    context['form']= form
+    return render(request, "accounts/add_post.html", context)
+
+def add_newpost(request):
     context ={}
     form = PostForm(request.POST or None, request.FILES or None)
      
@@ -48,6 +62,8 @@ def add_post(request):
         context['message'] = "پست جدید ایجاد گردید."
     context['form']= form
     return render(request, "accounts/add_post.html", context)
+
+
 
 
 def logoutView(request):
@@ -113,3 +129,10 @@ def register(request):
     if request.method == 'GET':
         form=MyForm()
         return render(request,'accounts/register.html',{'form':form})
+    
+   
+@login_required
+def show_post(request):
+    posts =Post.objects.all()
+
+    return render(request,'accounts/show_post.html',{'posts':posts})

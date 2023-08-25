@@ -1,0 +1,48 @@
+
+
+<!-- -------------------------------------------------------- -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+  {# Load the tag library #}
+  {% load django_bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+<title>پست جدید</title>
+  </head>
+  <body>
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">ایجاد پست جدید</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/">مشاهده وبلاگ</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" color="red" href="/accounts/" >خروج</a>
+      </li>
+    </ul>
+    
+
+    {% for post in posts %}
+    <p><a href="{% url 'add_post' post.id %}">{{post.title}}</a></p>
+        
+    {% endfor %}
+
+
+
+
+</body>
+</html>

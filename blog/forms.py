@@ -2,7 +2,7 @@ from django.db.models import fields
 from django.forms import widgets
 from .models import Comment, Post
 from django import forms
-
+from django.forms import Textarea
 
 class CommentForm(forms.ModelForm):
 
@@ -28,4 +28,4 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = '__all__'
         labels = {'title':'موضوع','author':'نویسنده','content':'محتوا','status':'وضعیت'}
-
+        # widgets = { "content": Textarea(attrs={"cols": 150, "rows": 20}),}
