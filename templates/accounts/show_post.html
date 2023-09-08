@@ -55,7 +55,7 @@
           <tr>
             <th scope="row">{{ forloop.counter}}</th>  {# The current iteration of the loop (1-indexed)#}
             <td>{{post.title}}</td>
-            <td><a href="{% url 'edit_post' post.id %}">ویرایش:</a> </td>
+            <td><a href="{% url 'edit_post' post.id %}">ویرایش</a> </td>
 
           </tr>
           {% endfor %}

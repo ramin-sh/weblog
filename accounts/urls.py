@@ -12,5 +12,6 @@ urlpatterns = [
     path('getmail',views.get_mail),
     path('register',views.register),
     path('show_post',views.show_post, name='show_post'),
-    path('/captcha',include("captcha.urls"))
+    path('/captcha',include("captcha.urls")),
+    path('get_background',views.get_background),#TODO badan takmil shavad
 ]

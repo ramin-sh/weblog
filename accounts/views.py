@@ -1,4 +1,4 @@
-from django.http import HttpResponse,HttpResponseRedirect
+from django.http import HttpResponse,HttpResponseRedirect,JsonResponse
 from django.shortcuts import render
 from django.contrib.auth import authenticate,login,logout
 from blog.forms import PostForm
@@ -137,3 +137,7 @@ def show_post(request):
     posts =Post.objects.all()
 
     return render(request,'accounts/show_post.html',{'posts':posts})
+
+def get_background(request):
+    mydata = {'url':'/static/img1.jpg'}
+    return JsonResponse(data=mydata)

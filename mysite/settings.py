@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+from os.path import join
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR,'templates') #new 
@@ -152,8 +153,14 @@ USE_TZ = True
 
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
+PROJECT_ROOT = BASE_DIR
+STATICFILES_DIRS = [
+    join(PROJECT_ROOT, 'static'),
+]
 
+
+LOGIN_URL='/accounts/'
 LOGIN_REDIRECT_URL='/accounts/show_post'
 
 #------------
