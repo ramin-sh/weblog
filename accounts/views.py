@@ -10,6 +10,7 @@ from .forms import MyForm
 from blog.models import *
 #..............................
 import random
+import requests
 
 def generate_random_code():
     code = random.randint(100000, 999999)
@@ -35,7 +36,9 @@ def loginView(request):
             }
             return render(request, 'accounts/login.html',context)
     else:
-        return render(request, 'accounts/login.html')
+        req = requests.get('http://127.0.0.1:8000/accounts/get_background')
+        img_url = req.json()['url']
+        return render(request, 'accounts/login.html',{'img_url':img_url})
 
 @login_required    
 def edit_post(request,post_id):
@@ -139,5 +142,8 @@ def show_post(request):
     return render(request,'accounts/show_post.html',{'posts':posts})
 
 def get_background(request):
-    mydata = {'url':'/static/img1.jpg'}
+    rand = random.randint(1,5)
+    rand = str(rand)
+    mydata = {'url':f'/static/img{rand}.jpg'}
+    print(mydata)
     return JsonResponse(data=mydata)
