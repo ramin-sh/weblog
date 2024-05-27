@@ -27,8 +27,7 @@ class PostDetail(generic.DetailView):
             if form.is_valid():
                 # Save the form data to the database
                 my_model = form.save(commit=False)
-                
-
+                
                 my_model.blog_post = self.object  # Assign the foreign key
                 
                 my_model.save()
