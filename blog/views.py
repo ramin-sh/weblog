@@ -33,3 +33,5 @@ class PostDetail(generic.DetailView):
                 my_model.save()
 
                 return render(request, self.template_name, self.get_context_data())  
+
+
